@@ -1,18 +1,16 @@
 package courier;
 
-public class Courier {
+public class CourierData {
     private String login;
     private String password;
-    private String firstName;
 
-
-    public Courier(String login, String password, String firstName) {
+    public CourierData(String login, String password) {
         this.login = login;
         this.password = password;
-        this.firstName = firstName;
     }
 
-    public Courier() {
+    public static CourierData from(Courier courier) {
+        return new CourierData(courier.getLogin(), courier.getPassword());
     }
 
     public String getLogin() {
@@ -29,13 +27,5 @@ public class Courier {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 }
